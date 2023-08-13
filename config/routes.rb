@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'about/index'
   root 'articles#index'
-  get '/articles', to: 'articles#index'
+
+  resources :articles
 end

@@ -1,10 +1,23 @@
-<h1>Articles</h1>
+<%= render 'shared/header' %>
 
-# Display all articles in the database, using an unordered list
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= article.title %>
-    </li>
-  <% end %>
-</ul>
+<%# Display all articles in the database, using an unordered list %>
+<div class="">
+  <ul class = "p-6 pt-6 pb-6">
+    <div class="grid grid-cols-3 gap-4 ">
+      <% @articles.each do |article| %>
+        <li class="p-5 text-center max-w-lg h-60 list-disc rounded border-2 border-white overflow-hidden drop-shadow-lg bg-cyan-200">
+          <div class = " text-mono underline underline-offset-4 pb-4" >
+            <%= link_to article.title, article %>
+          </div>  
+          <div class="p-2 text-justify pl-16 pr-16">
+            <%= link_to article.body, article %>
+          </div>
+        </li>
+        
+      <% end %>
+    </div>
+  </ul>
+</div>
+<%# Footer %>
+<%= render 'shared/footer' %>
+

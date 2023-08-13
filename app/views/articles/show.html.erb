@@ -1,0 +1,24 @@
+<%= render 'shared/header' %>
+
+<%# Show the article %>
+<div class = "p-3 ">
+  <h1 class="font-mono text-center text-2xl font-bold underline"><%= @article.title %></h1>
+</div>
+<div class = "p-5" >
+  <p class="trix-content "><%= @article.body %></p>
+</div>
+
+<%# Edit the article %>
+<div class = "grid grid-cols-8 gap-2 font-mono text-sm align-middle content-centre">
+  <ul class = "list-none font-mono text-sm p-3">
+    <li class="list-none bg-red-500 py-2 px-8 text-center rounded h-10 hover:rounded-xl hover:border-2 border-yellow-500 " ><%= link_to 'Edit', edit_article_path(@article) %></li>
+  </ul>
+
+<%# Delete the article %>
+  <ul class = "list-none font-mono text-sm p-3">
+    <li class="list-none bg-red-500 py-2 px-6 text-center rounded h-10 hover:rounded-xl hover:border-2 border-yellow-500"><%= link_to 'Destroy', article_path(@article), data: {
+        turbo_method: :delete,
+        turbo_confirm: 'Are you sure?'} 
+        %></li>
+  </ul>
+</div>
